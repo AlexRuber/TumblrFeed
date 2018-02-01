@@ -1,5 +1,5 @@
 # TumblrFeed
-# Lab 1 - *Name of App Here*
+# Lab 1 - *TUMBLED*
 
 **Tumblr** is a photo browsing app using the [The Tumblr API](https://www.tumblr.com/docs/en/api/v2#posts).
 
