@@ -13,14 +13,25 @@ import Alamofire
 class PhotosViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     // Variables
     var posts: [[String:Any]] = []
+    var refresher: UIRefreshControl!
     
     // Outlets
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Setting up tableview
         tableView.delegate = self
         tableView.dataSource = self
+                
+        //Manual Refresher Logic
+        refresher = UIRefreshControl()
+        refresher.attributedTitle = NSAttributedString(string: "Refreshing Feed :D")
+        refresher.addTarget(self, action: #selector(PhotosViewController.update), for: UIControlEvents.valueChanged)
+        tableView.addSubview(refresher)
+        
+        
         // Do any additional setup after loading the view, typically from a nib.
         // Network request snippet
         let url = URL(string: "https://api.tumblr.com/v2/blog/humansofnewyork.tumblr.com/posts/photo?api_key=Q6vHoaVm5L1u2ZAW1fqv3Jw48gFzYVg9P0vH0VHl3GVy6quoGV")!
@@ -49,6 +60,16 @@ class PhotosViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
         task.resume()
         
+    }
+    
+    @objc func update() {
+        //update your table data here
+        //tableArray.append(count)
+        print("-- update called --")
+        DispatchQueue.main.async() {
+            self.tableView.reloadData()
+            self.refresher.endRefreshing()
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
