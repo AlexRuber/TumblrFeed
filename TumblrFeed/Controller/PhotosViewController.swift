@@ -18,6 +18,8 @@ class PhotosViewController: UIViewController, UITableViewDelegate, UITableViewDa
     // Outlets
     @IBOutlet weak var tableView: UITableView!
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -27,10 +29,15 @@ class PhotosViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 
         //Manual Refresher Logic
         refresher = UIRefreshControl()
-        refresher.attributedTitle = NSAttributedString(string: "Refreshing Feed :D")
+        refresher.attributedTitle = NSAttributedString(string: "Refreshing Feed 😊")
         refresher.addTarget(self, action: #selector(PhotosViewController.update), for: UIControlEvents.valueChanged)
         tableView.addSubview(refresher)
         
+//        let gesture = UITapGestureRecognizer(target: self, action:Selector("onDoubleTap:"))
+//        gesture.numberOfTapsRequired = 2
+//        contentView.addGestureRecognizer(gesture)
+//
+//        catPawIcon?.hidden = true
         
         // Do any additional setup after loading the view, typically from a nib.
         // Network request snippet
@@ -101,6 +108,8 @@ class PhotosViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return cell
     }
 
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

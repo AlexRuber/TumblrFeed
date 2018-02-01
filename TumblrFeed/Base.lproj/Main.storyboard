@@ -32,22 +32,33 @@
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KFe-ZT-eWD" customClass="RoundView" customModule="TumblrFeed" customModuleProvider="target">
                                                     <rect key="frame" x="10" y="5" width="355" height="239"/>
+                                                    <gestureRecognizers/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="239" id="RAK-5X-e7a"/>
                                                         <constraint firstAttribute="width" constant="355" id="jJN-So-VVG"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="heart" translatesAutoresizingMaskIntoConstraints="NO" id="5st-40-gpu">
+                                                    <rect key="frame" x="137" y="75" width="100" height="100"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="100" id="U3v-ou-FVI"/>
+                                                        <constraint firstAttribute="height" constant="100" id="V7p-ru-Afq"/>
                                                     </constraints>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="KFe-ZT-eWD" secondAttribute="trailing" constant="10" id="1KX-Px-qY5"/>
                                                 <constraint firstAttribute="bottom" secondItem="KFe-ZT-eWD" secondAttribute="bottom" constant="5" id="5CC-aL-MJv"/>
+                                                <constraint firstItem="5st-40-gpu" firstAttribute="centerX" secondItem="Zzy-HY-1k5" secondAttribute="centerX" id="6r1-FM-SqO"/>
                                                 <constraint firstItem="KFe-ZT-eWD" firstAttribute="centerX" secondItem="Zzy-HY-1k5" secondAttribute="centerX" id="Ao8-gA-GHP"/>
                                                 <constraint firstItem="KFe-ZT-eWD" firstAttribute="centerY" secondItem="Zzy-HY-1k5" secondAttribute="centerY" id="BkT-Vj-fZ7"/>
                                                 <constraint firstItem="KFe-ZT-eWD" firstAttribute="top" secondItem="Zzy-HY-1k5" secondAttribute="top" constant="5" id="f4D-hx-i0o"/>
+                                                <constraint firstItem="5st-40-gpu" firstAttribute="centerY" secondItem="KFe-ZT-eWD" secondAttribute="centerY" id="jRG-vx-jFa"/>
                                                 <constraint firstItem="KFe-ZT-eWD" firstAttribute="leading" secondItem="Zzy-HY-1k5" secondAttribute="leading" constant="10" id="pYe-80-DPF"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="heartImage" destination="5st-40-gpu" id="rQJ-Sy-SfL"/>
                                             <outlet property="postImageView" destination="KFe-ZT-eWD" id="hhw-o8-kL7"/>
                                         </connections>
                                     </tableViewCell>
@@ -78,6 +89,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="heart" width="525" height="481"/>
         <image name="tumblr" width="712" height="256"/>
     </resources>
 </document>
