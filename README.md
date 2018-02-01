@@ -41,8 +41,7 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 ## Notes
 
 Describe any challenges encountered while building the app.
--Adding the double tap gesture recognizer
--Haven't added all constraints yet, run on iPhone 8 simulator for best results
+Some challenges were adding the double tap gesture recognizer. I also haven't added all constraints yet, run on iPhone 8 simulator for best results. 
 
 ## License
 
