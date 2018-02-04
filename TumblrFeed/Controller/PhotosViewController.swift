@@ -18,8 +18,6 @@ class PhotosViewController: UIViewController, UITableViewDelegate, UITableViewDa
     // Outlets
     @IBOutlet weak var tableView: UITableView!
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -31,14 +29,13 @@ class PhotosViewController: UIViewController, UITableViewDelegate, UITableViewDa
         refresher = UIRefreshControl()
         refresher.attributedTitle = NSAttributedString(string: "Refreshing Feed 😊")
         refresher.addTarget(self, action: #selector(PhotosViewController.update), for: UIControlEvents.valueChanged)
-        tableView.addSubview(refresher)
+        tableView.insertSubview(refresher, at: 0)
+
+        fetchImages()
         
-//        let gesture = UITapGestureRecognizer(target: self, action:Selector("onDoubleTap:"))
-//        gesture.numberOfTapsRequired = 2
-//        contentView.addGestureRecognizer(gesture)
-//
-//        catPawIcon?.hidden = true
-        
+    }
+    
+    func fetchImages() {
         // Do any additional setup after loading the view, typically from a nib.
         // Network request snippet
         let url = URL(string: "https://api.tumblr.com/v2/blog/humansofnewyork.tumblr.com/posts/photo?api_key=Q6vHoaVm5L1u2ZAW1fqv3Jw48gFzYVg9P0vH0VHl3GVy6quoGV")!
@@ -53,30 +50,24 @@ class PhotosViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 // Get the dictionary from the response key
                 let responseDictionary = dataDictionary["response"] as! [String: Any]
                 // Store the returned array of dictionaries in our posts property
-
+                
                 
                 // TODO: Get the posts and store in posts property
                 self.posts = responseDictionary["posts"] as! [[String: Any]]
                 
                 print(self.posts)
-
+                
                 
                 // TODO: Reload the table view
                 self.tableView.reloadData()
+                self.refresher.endRefreshing()
             }
         }
         task.resume()
-        
     }
     
     @objc func update() {
-        //update your table data here
-        //tableArray.append(count)
-        print("-- update called --")
-        DispatchQueue.main.async() {
-            self.tableView.reloadData()
-            self.refresher.endRefreshing()
-        }
+        fetchImages()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
