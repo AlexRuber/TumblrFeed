@@ -98,6 +98,18 @@ class PhotosViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         return cell
     }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let vc = segue.destination as! PhotosDetailViewController
+        let cell = sender as! PhotoCell
+        let indexPath = tableView.indexPath(for: cell)!
+        guard let photoImage = cell.postImageView.image else { return }
+        vc.getImage = photoImage
+    }
+
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
 
     
     

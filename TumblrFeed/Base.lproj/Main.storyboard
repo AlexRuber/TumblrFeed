@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="65a-kO-Ecz">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Photos View Controller-->
+        <!--Tumblr-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="PhotosViewController" customModule="TumblrFeed" customModuleProvider="target" sceneMemberID="viewController">
@@ -23,11 +23,11 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PhotoCell" rowHeight="250" id="kwt-FJ-tFe" customClass="PhotoCell" customModule="TumblrFeed" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="PhotoCell" rowHeight="250" id="kwt-FJ-tFe" customClass="PhotoCell" customModule="TumblrFeed" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="250"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kwt-FJ-tFe" id="Zzy-HY-1k5">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="250"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="250"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KFe-ZT-eWD" customClass="RoundView" customModule="TumblrFeed" customModuleProvider="target">
@@ -38,58 +38,78 @@
                                                         <constraint firstAttribute="width" constant="355" id="jJN-So-VVG"/>
                                                     </constraints>
                                                 </imageView>
-                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="heart" translatesAutoresizingMaskIntoConstraints="NO" id="5st-40-gpu">
-                                                    <rect key="frame" x="137" y="75" width="100" height="100"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="100" id="U3v-ou-FVI"/>
-                                                        <constraint firstAttribute="height" constant="100" id="V7p-ru-Afq"/>
-                                                    </constraints>
-                                                </imageView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="KFe-ZT-eWD" secondAttribute="trailing" constant="10" id="1KX-Px-qY5"/>
                                                 <constraint firstAttribute="bottom" secondItem="KFe-ZT-eWD" secondAttribute="bottom" constant="5" id="5CC-aL-MJv"/>
-                                                <constraint firstItem="5st-40-gpu" firstAttribute="centerX" secondItem="Zzy-HY-1k5" secondAttribute="centerX" id="6r1-FM-SqO"/>
                                                 <constraint firstItem="KFe-ZT-eWD" firstAttribute="centerX" secondItem="Zzy-HY-1k5" secondAttribute="centerX" id="Ao8-gA-GHP"/>
                                                 <constraint firstItem="KFe-ZT-eWD" firstAttribute="centerY" secondItem="Zzy-HY-1k5" secondAttribute="centerY" id="BkT-Vj-fZ7"/>
                                                 <constraint firstItem="KFe-ZT-eWD" firstAttribute="top" secondItem="Zzy-HY-1k5" secondAttribute="top" constant="5" id="f4D-hx-i0o"/>
-                                                <constraint firstItem="5st-40-gpu" firstAttribute="centerY" secondItem="KFe-ZT-eWD" secondAttribute="centerY" id="jRG-vx-jFa"/>
                                                 <constraint firstItem="KFe-ZT-eWD" firstAttribute="leading" secondItem="Zzy-HY-1k5" secondAttribute="leading" constant="10" id="pYe-80-DPF"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="heartImage" destination="5st-40-gpu" id="rQJ-Sy-SfL"/>
                                             <outlet property="postImageView" destination="KFe-ZT-eWD" id="hhw-o8-kL7"/>
+                                            <segue destination="Gim-1X-y6G" kind="push" identifier="toDetails" id="1eG-2x-irm"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gmz-Tg-012">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="tumblr" translatesAutoresizingMaskIntoConstraints="NO" id="wvs-a0-mGr">
-                                        <rect key="frame" x="118" y="18" width="138" height="51"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                </subviews>
-                                <color key="backgroundColor" red="0.2094891369342804" green="0.26889702677726746" blue="0.36027991771697998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Tumblr" id="VxG-Hg-JXd"/>
                     <connections>
                         <outlet property="tableView" destination="WdS-T5-zn2" id="qCx-jY-8VH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-82.400000000000006" y="86.806596701649184"/>
+            <point key="canvasLocation" x="225" y="87"/>
+        </scene>
+        <!--Photos Detail View Controller-->
+        <scene sceneID="itV-33-P3W">
+            <objects>
+                <viewController id="Gim-1X-y6G" customClass="PhotosDetailViewController" customModule="TumblrFeed" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Qsa-kz-pYG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bnx-Dq-jd2">
+                                <rect key="frame" x="20" y="97" width="334" height="227"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="NGs-VD-FIg"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="3W9-RE-C97"/>
+                    <connections>
+                        <outlet property="photoImage" destination="bnx-Dq-jd2" id="Z6P-YB-Yv3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="c0A-b3-who" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1013.6" y="86.806596701649184"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="hAO-X0-0W2">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="65a-kO-Ecz" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="eDI-ZD-HgQ">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="CfB-ip-p5z"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LqM-mR-Z1B" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-542" y="87"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="heart" width="525" height="481"/>
-        <image name="tumblr" width="712" height="256"/>
-    </resources>
 </document>
