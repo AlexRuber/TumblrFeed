@@ -21,6 +21,7 @@ class PhotosViewController: UIViewController, UITableViewDelegate, UITableViewDa
     override func viewDidLoad() {
         super.viewDidLoad()
         
+
         //Setting up tableview
         tableView.delegate = self
         tableView.dataSource = self
@@ -95,7 +96,8 @@ class PhotosViewController: UIViewController, UITableViewDelegate, UITableViewDa
             cell.postImageView.af_setImage(withURL: url!)
             
         }
-        
+        cell.accessoryType = UITableViewCellAccessoryType.none
+
         return cell
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
